@@ -1,0 +1,29 @@
+			22 AAA (Authentication, Authorization, Accounting)
+
+
+Authentication:
+
+İçeriden veya dışarıdan kimin bağlandığının kimlik kontrolünü yapma 
+
+Kullanıcı ID ve Şifre
+
+
+Authorization:
+
+Kimlik kontrolünden başarıyla geçenlerin ağımıza hangi yetkilerle belirleme başka bir söylemle hangi cihazlara ya da kaynaklara hani seviyede erişim yetkisi verileceği 
+
+Sunuculara erişim yetkisi
+
+
+Accounting:
+
+Tüm bu olayların kayıtlarının tutulması 
+
+Kullanıcının hani sunucuya zaman diliminde bağlandığı, hangi dsoyalara eriştiği ve ne gibi değişiklikler yaptığı gibi kayıtların bir sunucuda toplanması bir siber güvenlik olayında incelemelere katkıda bulunması açısından çok önemlidir.
+
+
+	Multi Factor Authentication(MFA):
+
+Kullanıcı adı ve porola korumada yetersiz kaldığı için 2. veya 3. kimlik doğrulama prosedürlerinin kullanılmasıdır. 
+
+Parmak izi, göz kontrolü, yüz tanıma sistemleri vb.

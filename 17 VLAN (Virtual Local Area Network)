@@ -1,0 +1,69 @@
+			17 VLAN (Virtual Local Area Network)
+
+
+Bir LAN üzerindeki kullanıcıların ve kaynakların mantıksal olarak gruplandırılması ve switch üzerindeki bağlantı noktalarına atanmasıyla oluşturulur. 
+
+VLAN kullanılmasıyla her VLAN sadece kendisi ile ilgili broadcast alacağından yayın trafiği azaltılarak bant genişliği daha verimli kullanılmış olur. 
+
+
+		VLAN Kullanmanın Yararları: 
+
+
+	Kontrol ve Performans: 
+
+Gereksiz paket gönderimi performans sorunlarına neden olur. Bir Ağ VLAN'lar kullanılarak bölümlere ayrıldığı taktirde gereksiz yayın trafiği de engellenmiş olur.
+
+
+	Güvenlik:
+
+Birbiri ile ilgisi olmayan grupların birbiri ile iletişimi önlenerek olası bir dış tehdite karşı önlem alınmış olur. 
+
+Switch üzerindeki cihazlar VLAN ile gruplara ayırıldığında kötü niyetli bir kullanıcının ağ üzerinde herhangi bir uca bağlanarak tüm ağı dinleme olasılığının önüne geçilmiş olur. 
+
+
+	Ölçeklenebilirlik:
+
+VLAN kullanarak oluşturulmuş bir ağda aslında yayın grupları oluşturulmuştur. 
+
+Fiziksel konum ne olursa olsun br kullanıcı istenen VLAN'a atama esnekliğine sahip olur. 
+
+
+
+		VLAN Türleri:
+
+
+	Veri VLAN'ı (Data VLAN):
+
+Özelleşmemiş standart trafiği taşımak üzere yapılandırılmış VLAN'dır. 
+
+Kullanıcı kaynaklı internet trafiği buna örnek olarak gösterilebilir.
+
+Bir VLAN aynı anda ses ya da görüntü temelli trafik de taşıyabilir. 
+
+Diğer adı da Kullanıcı VLAN'dır.
+
+
+	Varsayılan VLAN (Default VLAN):
+
+Switch'in bütün bağlantı noktaları varsayılan VLAN'a dahil olur.
+
+Switch'in bütün bağlantı noktaları varsayılan VLAN'a dahil olması bu balantı noktalarının aynı yayının etki alanınayani broadcast domaine dahil eder.
+
+
+	Yerel VLAN (Native VLAN):
+
+Trunk bağantı noktası herhangi bir VLAN'dan gelmeyen trafiği yerel VLAN'a yönlendirir. 
+
+
+	Yönetim VLAN'ı (Management VLAN):,
+
+Switch'i yönetmek üzere yapılandırılmış herhangi bir VLAN olabilir.
+
+Eğer yönetim VLAN'ı olarak herhangi bir VLAN yapılandırılmamışsa VLAN bir yönetim VLAN'ı olarak hizmet verir.
+
+Yönetim VLAN'ının bir IP Adresi ve Subnet Mask atandığında bu switch HTTP, Telnet, SSH ve SNMP gibi yollarla bağlanabilir. 
+
+
+	Ses VLAN'ı (Voice VLAN):
+
+Ses VLAN'ı üzerinden sadece ses tarfiği geçirilmesi üzerine yapılandırılan VLAN'dir.

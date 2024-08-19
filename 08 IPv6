@@ -1,0 +1,70 @@
+			08 IPv6
+
+
+32 bit olan IPv4'ün yetersiz kalması sebebiyle ortaya çıkarılan 128 bit adresleme standardına sahip IPv6 protokolüdür. 
+
+En büyük özelliği 2^128 gibi bir adresleme sayısına sahip olmasının yanısıra IPv4 ile ilgili tüm sıkıntılar göze alınarak tasarlanmıştır.  
+
+IP adresi köşeli parantez içinde yazılır. Bunun sebebi IP adresi ve port numarasının karışmaması içindir. 
+
+
+	IP Header OPtimizasyonu: 
+
+IP başlık optimizasyonu önemsiz ya da opsiuonel olan alanların uzantı başlıkları olarak tanımlanan ve IPv6 başlığından sonra eklenen Extension Header'e taşınmasını kapsar.
+
+
+		IP Adres Tanımlama Opsiyonları:
+
+	Statefull(Durum TAnımlamalı): 
+
+DHCP yöntemidir. Cihaz tüm gerekli bilgileri ortamdaki sunucuda elde eder. 
+
+
+	Stateless(Durum Tanımlamasız):
+
+Cihaz, routerdan yayılan bilgilerle kendi üstünde bulunan bazı verileri harmanyalarak ürettiği IP adresini kullanır. 
+
+Bu yöntemde cihazın routerdan öğrendiği bilgi bulunduğu ağda kullanılmayan bir IP adresi seçebilmesi için önemlidir. 
+
+
+	EUI-64 Tekniği:
+
+Bir cihaza IPv6 adresi verirken İnterface ID kısım cihazın otomatik olarak oluşturmasını sağlamak amaçlı kullanılabilir.
+
+Ayrıca durum tanımlamasız yani Stateless konfigürasyonda cihazlara el ile IPv6 adresi verilmez. Cihaz Network adresini yani 64 biti bulunduğu ağdak, IPv6 yönlendiricilerden Router Advertisement mesajlarıyla alır. 
+
+
+** Alt Ağlara bölme işlemi (Subnetting) IPv6da yoktur. 
+
+
+Routing Prefix (Yönlendirme ön eki) 			Subnet ID 			İnterface ID
+
+		48 biti							 		 16 biti				64 bit
+
+
+		Neighbor Dicovery Mesajları:
+
+Komşu Saptama Protokolüdür. 
+
+Bu protokolün ikinci katman uygulaması olan IP adres eşleme işlemini gerçekleştiren ARP protokolünün yerini alması beklenmektedir. 
+
+
+	Router Advertisement:
+
+Ağdaki makinelerin oto-konfigürasyon, subnet yapılandirması ve default gateway gibi network bilgilerini alabilmeleri için router'ların periyodik olarak yayımladığı multicast mesajlardır.
+
+
+	Router Solicitatiton:
+
+Ağdaki makinelerin periyodik router advertisement mesajlarını beklemek yerine gereklidurumlarda router keșif talebinde bulunmalarına olanak sağlayan multicast mesajlardır.
+
+
+	Neighbor Solicitation:
+
+Ağdaki istemciler, haberleşecekleri makinenin MAC adresini belirlerken bu mesajı yayınlarlar. Bu yöntemde MAC adres belirleme işlemi yapilırken mesaj multicast olarak yayunlanır, bir komşunun ulaşılabilir olup olmadığınt belirlemek için ise unicast yayın yapılır.
+
+
+	Neighbor Advertisement:
+
+Bu süreç bir yandan Neighbor Solicitation taleplerine yanıt (Neighbor Advertisement) gönderme, bir yandan da diğer ağ bileşenlerini konfigürasyon değişiklikleri hakkında bilgilendirme aşamalarından oluşur.
+

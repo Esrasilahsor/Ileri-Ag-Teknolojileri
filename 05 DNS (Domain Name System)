@@ -1,0 +1,32 @@
+			05 DNS (Domain Name System)
+
+
+Dns  istemcilerde DNS sunucu ya da sunucuların adresleri bulunur.
+
+Bir Dns istemci bir bilgisayarın ismine karşılık IP adresi bulmak isrediği zaman isim sunucuya yani Dns sunucu da kendi veritabanında öyle bir isim varsa bu isme karşılık gelen IP adresini istemciye gönderir.
+
+Dns veri tabanına kayıtların manuel girilmesi gerekir.
+
+İnternet adresleri ilk önce ülkelere göre ayrılır. Adreslerin sonundaki "t, d, uk" gibi ifadeler adreslerin bulunduğu ülkeyi gösterir. 
+
+.tr -> Türkiye
+.uk -> İngiltere
+.de -> Almanya
+
+**ABD adresleri için bir ülke takısı kullanılmaz çünkü DNS vb uygulamaları başlatan ülke ABD'dir. 
+
+Adlandırma yapısı küçük yönlendirilebilir bölgelere ayrılmıştır. Her Dns sunucusu belirli bir veritabanı dosyasını korur ve yalnızca bu yapının isim-IP eşleşmelerini yönetmekten sorumludur. 
+
+Bir Dns sunucusu, bölgesinde olmayan bir isim çevirisi için istek aldığında bu isteği çeviri için uygun bölgedeki başka bir Dns sunucusuna iletir. 
+
+İnternet adresleri ülkelere ayrıldıktan sonra .com .edu .net gibi daha alt bölümlere ayrılır. Bu ifadeler Dns'de üst düzey yani Top-Level Domain'lere karşılık gelir.
+
+.com = Ticari Kuruluşlar
+.org = Ticari olmayan ve hükümete bağlı bulunmayan kurumlar
+.net = İnternet omurgası işlemlerini üstlenen ağlar
+.gov = Hükümete bağlı kurumlar
+.mil = Askeri kurumları gösterir
+.num = Telefon numaralarını bulabileceğimiz yerleri gösterir
+.arpa = Ters Dns sorgusu yapabileceğimiz yerleri gösterir
+
+**Amerika hariç internete bağlı tüm adresler ülke koduyla biter. Türkiyedeki tüm alan adresleri .tr ile bitmektedir.  

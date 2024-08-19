@@ -1,0 +1,16 @@
+			10 TCP/UDP
+
+
+TCP başlığında paketin boyutunun ve gecikmenin artmasına sebep olan ek alanlar bulunur. UDP, daha basit bir taşıma katmanı protokolüdür
+
+Bu nedenle, protokol başlığında daha az alana sahiptir ve teoride TCP'den daha hizlı olduğu söylenebilir.
+
+Uygulama geliştiricileri uygulamanın gereksinimlerine göre hangi taşıma takmanı protokolünün uygun olduğunu seçmelidir. 
+
+Veritabanları, web tarayıcıları, e-posta istemcileri gibi uygulamalar gönderilen bilginin eksiksiz gelmesini önemsediğinden TCP Protokolü kullanırlar. 
+
+Ağ üzerindeki veri kaybo tolere edilebilir ancak iletimdeki gecikmeler kabul edilemez. UDP bu uygulamalr için daha iyi bir seçimdir çünkü daha hızlı iletim sağlar. 
+
+Canlı ses akışı,video akışı gibi uygulamalarda UDP kullanılır.
+
+

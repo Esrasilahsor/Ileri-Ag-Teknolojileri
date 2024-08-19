@@ -1,0 +1,55 @@
+			01 DHCP 
+
+
+DCHP IP adreslerinin Lease Period adı verilen yapılandırılabilir bir süre için tahsis edilebilir. Önemli bir DHCP ayarıdır.
+
+DHCP daha çok hostlar için, statik yapılandırma daha çok network cihazları için tercih edilir.  
+
+
+	Kapsam(Scope):
+
+Bir ağ üzerinde istemcilere dağıtılmak üzere oluşturulan IP havuzudur. 
+
+Bir kapsam alanı, DHCP hizmeti sunulan tek bir fiziksel alt ağı tanımlar ve istemcilere gerekli yapılandırma alt ayarları ile IP adreslerinin gönderilmesinde sunucuya başlıca yolu sağlar.
+
+ALt ağlar fiziksel alt yapıya göre belirlenir ve yönetim kolaylığı sağlamak amacıyla gruplandırılır. 
+
+Kapsamlar sayesinde gruplandırılmış alt ağlar DHCP sunucu üzerinde tanımlanmaktadır.
+
+
+	Üst Kapsam(Supercope):
+
+Aynı fiziksel alt ağda bulunan bir çok kapsamın yönetimsel olarak gruplandırma biçimidir.
+
+Birlikte etkinleştirilebilecek kapsamların listesini içerir.
+
+
+	Dışlama Aralığı(Exclusion Range): 
+
+Kapsam içerisindeki istemcilere sunulmamak üzere ayrılmış sınırlı IP adresleridir.
+
+
+	Adres Havuzu(Address Range):
+
+Tanımlanmış bir kapsam üzerinde Dışlama aralığına ait IP adreslerinin çıkarılması ile oluşan kullanılabilir Ip adresleri havuzudur. 
+
+İstemcilere dinamik olarak IP ataması bu havuz üzerinden yapılmaktadır. 
+
+
+	Kira(Lease):
+
+İstemci bilgisayar için atanan IP adresinin DHCP sunucusu tarafından belirlenen kullanım süresidir. Bu süre belirlendiğinde kira etkin duruma getirilmiş olur ve kira süresi dolmadan bu sürenin yenilemesi gerekir. 
+
+YEnilenmezse veya silinirse kira etkinliği sona erer. 
+
+İstemcinin kirayı ne sıklıkla yenilemesi gerektiği ise kira süresiyle ilgilidir.
+
+
+	Ayırma(Reservation): 
+
+Bir alt ağ içerisindeki bir makinanın her zaman aynı IP adresini kullanmasını sağlamak amacıyla kalıcı bir adres kira ataması oluşturulmasıdır. 
+
+
+	Seçenek Türleri(Scope Options):
+
+Her kapsam için etkinleştirilmesi gereken DNS , WINS, Default Gateway gibi ortak kullanılan bazı seçenekler için atanabilen istemci yapılandırma ayarlarıdır. 

@@ -1,0 +1,52 @@
+			20 IGMP (Internet Group Management Protocol)
+
+
+Multicast yayınlara erişmek isteyen kullanıcıların, multicast gruplara bağlanmak ve ilgili trafiği almak için kullandığı bir protokoldür.
+
+IGMP hem kullanıcı cihazlarında hem de yönlendirici arayüzlerinde desteklenmelidir ve aktif halde olmalıdır. 
+
+
+ 	IGMPv1 Paket Formatı:
+
+Bu versiyonda kullanıcı multicast yayına bağlandıktan sonra artık yayını istemediğinde, yayını istemediğini belirtmeine izin vermemesidir.  
+
+Doyayısıyla kullanıcı yayın istememesine rağmen multicast trafik ağda akmaya devam eder. Kullanıcı paketleri almayıp ağda düşürse de bu durum ağda verimsizlik oluşturur. 
+
+Günümüzde kullanılmamaktadır.
+
+
+	IGMPv2 Paket Formatı:
+
+Kullanıcıların artık yayın istemedğini yönlendiriciye göstermesini sağlar.
+
+IPv4 protokolü üzerine çalışır. 
+
+TTL(time to live) değeri 1 olarak gönderilir.
+
+
+	IGMPv3 Paket Formatı: 
+
+Kullanıcılar bir multicast gruba bağlanmak için gönderdikleri üyelik raporunda iki ayrı mod kullanabilirler. 
+
+İnclude mod olarak bilinen modda, kullanıcılar multicast trafiğin gelmesini istediği kaynak IP adresini ya da adreslerini spesifik olarak belirtirler. 
+
+Exclude modda ise, multicast trafiği alak istemedikleri kaynak IP adreslerini belirtmeleridir. Belirttikleri IP adresi dışındaki trafiği alabilirler.
+
+
+** Multicast verimliliği için IGMP zorunlu bir uygulamadır.
+
+
+	Multicast Listener Discovery (MLD):
+
+IPv6 yönlendiricilerin multicast yineleyicilerini doğrudan bağlı arabirimlerinde çok noktaya yayın veri paketlerini keşfetmesini sağlar. 
+
+Çok noktaya yayın yönlendiricisi belirli kaynaklardan trafik almak veya almamakla ilgilendiğini belirtmek isteyen sistemlerden, istenmeyen filtre modu  değişikliği kayıtlarını ve kaynak listes, değişiklik kayıtlarını da işler. 
+
+
+	Multicast Routing Protocol (MROUTE):
+
+Çok noktaya yayın IP yönlendirme protokolleri, örneğin ses, video akışı gibi birden çok alıcıya dağıtmak için kullanılır.
+
+Çok noktaya yayın kullanılarak bir kaynak tek bir çok noktaya yayın adresine tek bir veri kopyası gönderebilir. Bu daha sonra tüm bir alıcı grubuna dağıtılır.   
+
+Bir gruba veri göndermeden önce kaynakların kayıt olması gerekmez. 

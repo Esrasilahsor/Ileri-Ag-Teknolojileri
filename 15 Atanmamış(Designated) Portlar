@@ -1,0 +1,64 @@
+			15 Atanmamış(Designated) Portlar
+
+
+Bir ağ segmentinde mutlaka sadece bir tane atanmış port olmalıdır. İki tane olursa döngüye sebep olabilir. 
+
+Atanmış portlar maliyetine göre belirlenir ve bu portlar hiçbir şekilde blok durumunda olamaz. 
+
+* Bir port hem kök port hem de atanmış port olamaz. 
+
+STP;
+
+1. Path Cost (Rota Maliyeti)
+2. Bridge ID (Köprü Kimliği)
+3. Port ID
+	
+	sırasıyla belirler.
+
+
+	Topoloji Değişiklik Bildirimleri
+
+1-Port İletim Durumu
+2-İletim veya Öğrenme Durumundaki Port Blocking
+3-(Düşük) Down Durumu
+
+
+	STP Teknolojileri:
+
+-PortFast
+-UplinkFast
+-BAckboneFast
+
+
+	STP Güvenliği:
+
+-BPDU Guard: PortFast son kullanıcıya bağlı portlarda etkinleştirildiğinden bu port BPDU almamalıdır. Bu durumda BPDU Guard ve PortFadt birlikte çalışmalıdır diyebiliriz.
+
+-Root Guard: Bİr switchin kendisini kök köprü ilan etmesini engeller.
+
+-BPDU Filtering: PrtFast ile işbirliği içerisinde çalışabilecek bir diğer araçtır ve BPDU'ları çift yönlü olarak engeller.
+
+Hangi modda konfigüre edildiğne göre tepkisi değişmektedir. Dikkatli kullanılması gereken bir araçtır. 
+
+
+	RSTP'deki 4 Port Rolü:
+
+
+Root (kök) port: Kök köprüye giden en iyi rota maliyetine sahip porttur.
+
+Alternate (alternatif) port: Yedek kök port (daha yüksek rota maliyeti). Bağlantı noktası, kök arayüzünden kök aygıta giden alternatif yol sağlar.
+
+Designated (atanmış) port: Her network segmentindeki en iyi rota maliyetine sahip kök olmayan port. Köprünün LAN'a bağlandığı bağlantı noktası.
+
+Backup (yedek) port: Atanmış portun yedeği. Bağlantı noktası, kapsama ağacına doğru belirlenen bağlantı noktası yoluna bir yedekleme yolu sağlar. Bunun nedeni, iki bağlantı noktasının bir noktadan noktaya bağlantı ile bir döngü içinde bağlandığı bir yapılandırmadır. Bir LAN, ağın paylaşilan bir kesimine iki veya daha fazla bağlantıya ihtiyaç duyduğunda yedek bağlantı noktaları kullanilabilir.
+
+
+	
+	RSTP'deki 3 Port Durumu: 
+
+
+Başlangıçta port discarding durumunda, yani paketleri yönlendirmiyor ve MAC adreslerini öğrenmiyor, BPDU'ları dinliyor. Alternate ve backup portlar discarding durumda kalmaya devam ederler.
+
+RSTP dinleme durumuna ihtilyaç duymaz. Bir port kök veya atanmış olarak belirlenirse direkt öğrenme durumuna geçiyor. MAC adreslerini CAM Table'a eklemeye başlıyor ama paketleri henuz yönlendiremiyor.
+
+Öğrenme durumdaki port iletime geçince BPDU'ları alabiliyor ve iletebiliyor, MAC adreslerini öğrenebiliyor, paketleri yönlendirebiliyor.

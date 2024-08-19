@@ -1,0 +1,14 @@
+			12 UDP
+
+
+OSI Modelinde Taşıma katmanında(4. Katman) çalışan bir protokoldür.
+
+Bağlantısız iletişim mantığıyla çalışır. 
+
+Taraflar arasında sabit bir iletişim hattı kurmaya çalışmaz. Bağlantının kararlarını kontrol etmez.
+
+Sadece paketin sağlam bir şekilde ulaştığını teyit eder. Bağlantı paketlerinin bütünlüğü, sırası gibi verilerin kontrolü ile ilgilenmez. 
+
+Verilerin hızlı iletilmesi önemlidir, hata kontrolü önemli değildir. 
+
+Toplamda 4 bayttır. 

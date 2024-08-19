@@ -1,0 +1,53 @@
+			07 IPv4 ve Subnet Mask
+
+
+	IPv4 adresleri:
+
+Ağı oluşturan cihazların posta adresi gibi düşünülebilir.
+
+IP adresi MAC adresi gibi cihaza özgü değildir. Cihaza MAC adresi gibi gömülmez bunun yerine cihaza atanır. 
+
+Yapılandırılabilir veya  altyapıya bağlı olarak elde edilebilir. 
+
+Coğrafi adreseleme sistemi yerine mantıksal adresleme sistemi kullanılır. 
+
+En çok kullanılan protokol olduğundan sadece IP olarak bilinir. 
+
+Üst katmandan gelen veriler üzerinde hedef ve kaynak IP yazılan sanal bir zarfın içine konur. Protokol Data Unit(PDU) olarak bilinen bilgilere doğru hedef cihaza göndermek için bu zarfı kontrol edecektir. 
+
+Ağ katmanı PDU'su Paket olarak bilinir. 
+
+4 bayt uzunluğundadır.  
+
+
+ 192.168.1.34   IP adresi
+---------   |
+Network ID  |-> Host ID
+----------  |
+255.255.255.0
+
+
+Gelişen teknoloji ile internete bağlanabilen cihazların sayısı arttı ve mevcut IPv4 adres sayısını geçti. Esnekliği arttırmak ve bu ihtiyacı karşılamak için Classless(Sınıfsız) adresleme ortaya çıktı.  
+
+	Private IP: 
+
+Bu IP'ler internet ortamına çıkamazlar. İç ağımızda kullanıldığından dolayı yeryüzünün herhangi bir noktasında başka bir bilgisayar da bu özel bloktan aynı IP adresine sahip olabilir. 
+
+
+	Subnet Mask:
+
+Alt ağlar IP yönetimini daha verimli yapabilmek için kullanılır. 
+
+IP uzaylarını alt ağlara bölünme işine "Subnetting" denir.
+
+Subnet Mask ağ trafiğini azaltır. Routerlerin kullanıldığı alanlarda yoğun ağ trafiği mevcuttur ve routerlar broadcast domainler yaratmaktadır. 
+
+Broadcast Domain: Ağda, bir ağın üyesi olan istemcinin Router'a ulaşmadan diğer istemci cihazlarla veri iletişiminde bulunabildiği yapıdır. 
+
+Broadcast Domain sayısı arttıkça o domain içerisindeki ağ trafiği tek bir broadcast domaine sahip bir yapıya göre azalacaktır. 
+
+Subnet .mask aynı zamanda aü performasını da optimize eder ve ağ yönetimini kolaylaştırır. 
+
+İzole edilmiş networklerde problemlerin tespit edilmesi ve anlaşılması daha kolay olmaktadır. 
+
+Broadcast Adresi: Bir ağ üzerindeki tüm adresleri ifade eder. o ağda herhangi bir broadcast yayını söz konusu ise, veriler bu adrese gönderilir. Alt ağın son IP'ai broadcast olarak ayarlanır. 

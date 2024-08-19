@@ -1,0 +1,41 @@
+			19 LACP (Link Aggregation Control Protocol)
+
+
+Lagları otomatik olarak kontrol etmeyi sağlayan protokoldür.
+
+İki cihaz arasında birden fazla kişisel hat yani link varsa bu fiziksel linkleri tek bir sanal link grubu altında birleştirmektir.
+
+İki cihaz arasında link gerekliliği sağlarken aynı zamanda tüm linkleri aktif olarak kullanarak bant genişliği kapasitesini arttırmak için kullanılır.  
+
+İki cihaz arasında birden fazla link kulanmak bize yedeklilik sağlar ancak linklerden sadece birinin aktif olarak kullanabiliriz. 
+
+Hem yedeklilik sağlayıp hem de iki linki aynı anda aktif olarak kullanabilmek için bu iki linki tek bir sanal linkte birleştirerek STP'nin bu sanal linke tek bir link gibi davranmasını ve linklerden hiçbirini kapatmamasını sağlayabiliriz.
+
+
+	Linklerin Sanal Link Altında Birleştirilme Şartları:
+
+Linkler aynı hizda olmalıdır. Örneğin, bir 1Gbps linkle 10 Gbps link aynı anal ink grubu altnda birleştirilemez
+
+Linkler aynı duplex ayarında olmalıdır
+
+Linklerin hepsi aynı layer' da tanımlanmalıdır. Ôrneğin L2 bir port ile L3 bir port aynı sanal link grubu altnda birlestirilemez.
+
+Diğer network ayarları da aynı olmalıdır. Bu amaçla sanal link grubu altında toplamayı planladığımız portlar, genelde önce default konfigürasyonları altında sanal link grubuna atanır. Sonra istenilen ayarlar, sanal grup altında yapılır ki, her linkte aynı ayarlar oluşturulabilsin.
+
+** Zorunlu olmadıkça manuel lag tavsiye edilmemektedir.
+
+LACP'nin desteklenmediği bir cihaz söz konusu ise hem trafiğin arttırıldığı cihazda hem de desteklemeyene cihazda manuel larak lag yapılandırması zorunlu hale gelmektedir.
+
+İki cihaz arasında LACP kullanılarak lag yapılandırırken en az bir tarafın aktif modla çalıştırmak gerekmektedir. Aktif mod karşı tarafla LACP kurmak için harekete geçer. 
+
+Yani LACP bu amaçla karşı tarafa paket gönderir. Karşı taraf pasif modda ise bu pakete karşılık verir ve LACP kurulmaya başlanır.
+
+Her iki cihaz da pasif modda yapılandırılırsa LACP kurulmaz.
+
+Bir Lag grubu içerisine genel olarak 8 tane port atanabilir. Lag içindeki portların sayısının 2'nin üsleri olması tavsiye edilir.
+
+	LACP Load-Balancing (Yük Dengeleme):
+
+LACP'nin kullanlma sebebi, yedekli hatlarda kullanılabilir bant genişliğini arttırmak olarak tanımlansa da bu durum sadece ayrı ayrı kaynak ve hedeflere ait trafikler için geçerlidir. iki adet 10Gbps trafik iletip alabilen sunucu arasındaki trafik, LACP bu trafik için hangi linki seçerse o linkin kapasitesiyle sınırlıdır.
+
+LACP her gelen paketi, sanal link grubundaki link sayisına bölüip, o oranda fragmente etmez (bölümlendirmez), her paketi sadece bir linke eşleştirir. Bu eşleştirmeyi de marka/modele göre değişkenlik gösterse de L2 source/destination mac-adress, L3 source/destination IP adress ve L4 source/ destination port numarasina gore yapar.

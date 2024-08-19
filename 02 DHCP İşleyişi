@@ -1,0 +1,45 @@
+			02 DHCP İşleyişi
+
+
+	Offer(Teklif) Paketi:
+
+IPv4
+Alt ağ maskesi(Subnet Mask)
+DNS sunucu IPv4 adresi
+Varsayılan ağ geçidi(Default Gateway)
+Lease Period(Kiralama süresi) içerir.
+
+**DHCP 67 ve 68. portları kullanır.
+
+		İşleyiş:
+
+	1- Discover(Keşfetmek):
+
+İlk kez IP alacak chazın DHCP sunucusunun keşfetmesi amacıyla gönderdiği pakettir.
+
+255.255.255.255 broadcast adresine gönderilir. Ağ içerisindeki bütün cihazlar bu paketi alır.
+
+
+	2- Offer(Teklif):
+
+Discover paketini yakalayan sunucu offer paketi ile cevap verir. 
+
+Offer paketinin amacı ağda b,r DHCP sunucusunun olduğunu belirtmek ve istemciye, boşta bulunan bir IP ataması için teklif gönderilmektir. 
+
+Bir offer paketinin içinde ne tür bilgilerin bulunabileceği sunucu tarafından belirlenen ağın ihtiyaçlarına göre belirlenebilir.
+
+Transaction ID: Offer paketindeki ID ile Discover paketindeki ID aynı olmalıdır ki istemciyle sunucu arasındaki iletişimde bir kopuklukmolmadığından emin olunulur. 
+
+
+	3- Request(İstek):
+
+İstemci Offer paketiyle gelen teklifi kabul ettiğini belirtmek için Request paketini yollar.
+
+Request paketinde broadcast yollanır çünkü işlemci henüz bu IP adresine sahip değildir. 
+
+
+	4- Acknowledge():
+
+Aynı Discover ve Offer paketinde olduğu gibi Request ve ACK paketlerinde de Transaction ID'leri aynıdır. 
+
+ACK paketini alan istemci artık IP adresini kullanabileceğini bilir ve paketlerini 0.0.0.0 kaynak adresiyle göndermeyi bırakır. 

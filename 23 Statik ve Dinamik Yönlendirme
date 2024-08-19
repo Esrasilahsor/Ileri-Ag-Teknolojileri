@@ -1,0 +1,49 @@
+			23 Statik ve Dinamik Yönlendirme
+
+
+	Statik Yönlendirme:
+
+Statik yönlendirme kullanılması durumunda rotalar sistem yöneticisi tarafından yönlendiricide konfigüre edildiğinden dolayı bu yapılandırmalarda konfigürasyon hataları yapılma olasılığı daha fazladır. 
+
+Ağdaki cihaz sayısı arttığıda her cihaza ayrı ayrı statik rota konfigürasyonu yapmak gerektiğinden bu işlem çok zaman alıcı olacaktır. 
+
+Arıza algıladığında paketi yönlendirme tablosundan çıkartır. 
+
+Bu sıkıntıları önlemek için yönlendiricilerin haberleşmesini sağlayan protokoller geliştirilmiştir. 
+
+
+	Dinamik Yönlendirme Protokolleri: 
+
+EIGRP
+OSPF
+IS-IS
+RIP
+
+	Genel olarak aynı amaca hizmet ederler;
+
+1-Ağ Üzerinde en etkin yolu kullanmak
+
+En etkin kavramı protokol bazında değişkenlik gösterebilir. Örneğin OSPF hat üzerindek her portun band genişliğini baz alan cost kavramı kullanırken, EIGRP hattaki en
+düşük band genişliğinin yanı sira en yüksek gecikme, porttaki yük vb parametreleri göz önüne alır. RIP ise hop count'u (rota Üzerindeki yönlendirici sayisı) baz almaktadır.
+
+2- Bir arıza durumunda bu arızayı diğer yönlendiricilere iletmek 
+
+3- En hizlı şekilde ağı tekrar kararlı hale getirmek şeklinde özetlenebilir. Yönlendiriler birbirleri arasında bir dinamik yönlendirme protokolü kullanarak konuştuklarında bu iletişim kÜçÜk de olsa bir bant genişliği harcayacaktır.
+
+
+** Her durumda ağdaki cihaz sayısı 2'den fazlaysa dinamik bir yönlendirme protokolü kullanılması önerilmektedir. 
+
+	EIGRP/RIPv2:
+
+EIGRP ya da RIPv2 ise, her yönlendiric ancak komşuluk kurduğu yönlendiriciden aldığı rota bilgilerine göre davranır. Örneğin yönlendiriciden 5 hop uzakta bir arıza meydana geldiğinde bu arızaya ilişkin network değişikliği bilgisi aradaki her yönlendiricide işlem görüp, birinden diğerine taşınmak durumundadır.
+
+Her yönlendirici gelen rota bilgisini alır, yönlendirme tablosunda gerekli değişiklik yapılır ancak bu işlemlerden sonra diğer yönlendiriye next-hop bilgisi değiştirilerek iletilir.
+
+
+	OSPF:
+
+OSPF'de ise yine arıza bilgisi iletilir ama her yönlendirici de işlem görmesi gerekmez, her OSPF yönlendiricisi gelen LSA'yi alır ve içeriğini değiştirmeden digerine gonderir. Bu agidan OSPFin bir area içerisinde bir arıza durumunda daha hızlı kararlı duruma geleceği söylenebilir.
+
+Ancak diğer taraftan OSPF'in de hem bir area içerisinde yönlendirici sayısı dolayısıyla topoloji bilgisi arttıkça her yönlendirici de algonįtma çalıştırmak igin harcanacak memory ve CPU yönünden dezavantajları da göz önüne alınmalıdır.
+
+Dolayısıyla, ağdaki yönlendirici sayısı, bunların kaynak kapasite durumları, rota seçerken kullanılan yöntem vb parametreler değerlişndirildikten sonra ağa en uygun dinamik yönlendirme protokolü seçilmelidir.

@@ -1,0 +1,48 @@
+			03 DHCP Options
+
+
+Option 3: Router Option
+Option 6:DNS Server Option
+Option 51:IP Address Lease Option
+Option 53: DHCP Message Type Option
+Option 55: Parameter Request List Option
+Option 66:TFTP Server Name Option
+Option 67: Boot File Name Option
+Option 82: DHCP Relay Agent
+Option 150: TFTP Server IP Address Option
+
+
+DHCP Relay:
+
+DHCP paketleri broadcast olarak gönderildiği için DHCP sunucusunun farklı bir yerel ağda bulunduğu senaryolarda Ağ Geçidi Üzerinde Relay ayar yapılmazsa, istemciler hiçbir zaman sunucuya ulaşamayacaktır.
+
+Relay blunmazsa DHCP paketleri Router tarafından düşürülür ve DHCP sunucusu herhangi bir DHCP mesajını alamaz. 
+
+
+	DHCP Relay Agent Bulunan Ağ:
+
+Broadcat DHCP mesajlarını Unicast'e çevirir ve DHCP sunucusuna yönlendirir. 
+
+Böylece DHCP mesajları DCHP Relay Agent sayasinde DHCP sunucusuna iletilir.
+
+
+** Relay Agent Ayarlamak için komutlar;
+
+1. enable
+2. configure terminal
+3. ip dhcp relay
+
+
+DHCP sunucusu gelen isteğin Relay Agent'den geldiğini bilir.
+
+
+Hedef MAC adresi: Broadcast MAC adresi, DHCP sunucusunun MAC'i ile değiştirilir.
+
+Kaynak MAC adresi: Istemcinin MAC adresi, Relay Agent'ın uplinkinin MAC adresi ile değiştirilir. Figürde görünen  Gig0/0/1 interface'inin MAC'i yazılır.
+
+Hedef IP Adresi: Broadcast olan IP adresi, DHCP sunucusunun
+adresi ile değiştirilir.
+
+Kaynak IP Adresi: 0.0.0.0 olan bu adres, uplink'inin IP adresi ile değiştirilir.
+
+Relay Agent IP adresi: Oncesinde 0.0.0.0 iken, Relay Agent'in downlink (Gig0/0/0) interface'inin IP adresi ile değiştirilir.

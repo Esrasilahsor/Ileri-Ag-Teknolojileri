@@ -1,0 +1,43 @@
+			11 TCP
+
+İletim Kontrol Protokolü demektir. 
+
+Ağdaki farklı cihazlar arasında veri alışverişi için bir standarttır. 
+
+
+	Three Way Handshake:
+
+Tcp'nin bağlantı kurma ve bu bağlantıyı stabil tutma yöntemidir. Bu yöntem 3 aşama içerir. 
+
+SYN: SYN bitini 1 alarak alıcıyla bağlantı kurulmak istediğini bildirir. Bu ilk segmentteki seq number bizim başlangıç noktamızı belirler.  
+
+Seq numarası konuşmanın neresinde kaldığımızı karşı tarafa bildirir.
+
+ACK: Bizim karşı taraftan hangi seq number'a sahip paket beklediğimizi bildirir.
+
+Bu şekilde Konuşma başlamış olur ve seq number değerlerine göre konuşma yürütülür.
+
+
+		TCP Özellikleri:
+
+
+	Oturum oluşturma:
+
+TCP, bağlantı odaklı(Connection-oriented) bir protokoldür. Oturum kurma yoluyla, cihazlar belirli biz zamanda iletilebilecek trafik miktarını müzakere eder ve ikisi arasındaki iletişim verileri yakından yönetilebilir.
+
+
+	Güvenilirlik:
+
+Ağ açısından güvenilirlik, kaynağın gönderdiği her segmentin hedefe ulaşmasını sağlamak anlamına gelir. Bir segmentin ağ üzerinden iletildiği için tamamen bozulması veya kaybolması mümkündür.  
+
+
+	Verilerin İletim Sırasında Korunması:
+
+Ağlar, ağ üzerindeki cihazlarda arıza olması ihtimaline karşı birden çok yol sağlauacağından, veriler yanlış sırayla gelebilir. TCP, alıcı tarafta bu segmentlerin doğru sırayla yeniden birleştirilmesini sağlar. 
+
+
+	Akış Kontrolü(Flow Control):
+
+TCP, kaynakların yetersiz olduğunu bilfiğinde veri miktarını düzenleyebilir. Akış kontrolü, alıcı hostun kaynakları aşırı tüketildiğinde verileri yeniden iletilmesine olan ihtiyacı önleyebilir.
+
+

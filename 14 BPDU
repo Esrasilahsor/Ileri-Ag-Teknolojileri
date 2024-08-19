@@ -1,0 +1,32 @@
+			14 BPDU
+
+
+BPDU'lar STP prtokolünün kullanan genişletilmiş bir yerel ağ içindeki switchler arasında takas edilen veri iletileridir. 
+
+BPDU paketleri bağlantı noktaları, adresler, öncelikler yani Private ve maliyetler hakkında bilgi içerir. 
+
+Verilerin gitmesi gereken yere ulaşmasını sağlar. 
+
+	Inferior BPDU:
+
+Daha yüksek öncelik değerine sahip BPDU'lardır. STP'de daha düşük değere sahiplerdir.
+
+Bu sayede switchler kendi arasında BPDU kıyaslamasına göre atamalarını düzenler ve paketler için en iyi yolu hesaplar. 
+
+BPDU alan switch için saklanandan daha kötü olan Root Bridge hakkında bilgi taşıyorsa ve BPDU'nun mevcut Root Bridge'e ulaşmak için daha uzun bir mesafeye sahip olması durumunda İnferior BPDU olarak kabul edilir. 
+
+Varsayılan her switch BPDU'ların süersi doluncaya kadar inferior BPDU'ları görmezden gelmelidir.
+
+
+	Superior BPDU:
+
+Üst(Superior) BPDU daha düşük bir köprü kimliğine sahiptir. 
+
+Üst BPDU almak genelde bir switche şu anda seçilen kök köprünün kök kimliğinden daha düşük bir köprü kimliğine sahip bir BPDU aldığı anlamına gelir. 
+
+Bir switch alt bir BPDU alırsa hiçbir şet değişmez fakat üst bir BPDU almak STP Topolojisini yeniden oluşturulmasına sebep olabilir. 
+
+
+** Bir switchin kök köprüye en yakın olan portuna "Kök Port" denir.
+
+HEr switchin sadece 1 tane kök portu olabilir.

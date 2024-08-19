@@ -1,0 +1,27 @@
+			16 Multiple Spanning Tree Protocol (MSTP)
+
+
+Tek bir fiziksel ağdaki her VLAN için birden çok kapsayan ağaç oluşturur.
+
+Her VLAN'ın yapılandırılmış bir kök köprüsüne ve yönlendirme topolojisine sahip olmasını sağlar.
+
+BPDU sayısını ve ağ cihazlarının CPU üzerindeki baskılarını azaltır.
+
+MSTP, RSTP'nin bir uzantısıdır.
+
+MSTP, her VLAN grubu için ayrı bir kapsayan ağaç yaplandirır ve her bir kapsayan ağaçtaki olası alternatif yollardan biri hariç tümünü engeller.
+
+MSTP, birden çok MST örneğini (MSTI) çalıştırabilen Çoklu Genişleyen Ağaç (MST) bölgelerinin olusturulmasına izin verir.
+
+
+	Port Durumu:
+
+Disabled (Devre Dışı): STP bağlantı noktasında	devre dişı bırakılır. Bağlantı noktası trafiği	yönlendirir ve MAC adreslerini öğrenir.
+
+Blocking (Engelleme): Bu, bağlantı noktasının trafiği iletmesine veya MAC adreslerini ögrenmesine izin verilmediği anlamına gelir ancak bağlantı noktasI BPDU paketlerini iletebilir.
+
+Listening (Dinleme): Bağlantı noktası dinleme modundadır. Bu, bağlantı noktasının trafiği iletmesine izin verilmediği ve MAC adreslerini öğrenemediği anlamına gelir.
+
+Learning (Öğrenme): Bu, bağlantı noktasının trafiği iletmesine izin verilmediği, ancak yeni MAC adreslerini öğrenmesine izin verildiği anlamına gelir
+
+Forwarding (Yönlendirme): Bu, bağlantı noktasının trafiği iletmesine izin verildiği ve yeni MAC adreslerini öğrenebileceği anlamına gelir.

@@ -1,0 +1,28 @@
+			06 DNS Sorgu Tipleri
+
+
+	Tekrarlamalı Sorgu (İteratif): 
+
+Bir alan adına karşılık gelen IP adresini öğrenmek istediğimizde en üstten başlayarak adım adım ilerleriz.
+
+mail.pinetworks.com
+
+Öncelikle .com'u Kök sunucularından öğreniriz. Bu sayede .com'a pinetworksu sorabiliriz. pinetworks'u öğrendikten sonra ona maili sorabiliriz. 
+
+Bu sorgu tipine tekrarlamalı (iteratif) sorgu tipi denir ve genellikle yerelde tahsis edilmiş Dns sunucunuz tarafından gerçekleştirilir. 
+
+İstemcilerin her seferinde bu sorguyu gerçekleştirmemesi için genellikle kendi ağımızda DNS sunucuları kurarız veya Google'ın 8.8.8.8 IP adresi gibi Open DNS kullanırız. 
+
+Bu sunucular hem sorumlu oldukları alan adıyla ilgili Dns kayıtları tutarken, diğer alan adları için yapılan sorguları da aktif olarak öğrendikten sonra ön bellekte tutarak istemcilerden aynı adres için gelen sonraki sorgularda hızlı bir dönüş sağlar.
+
+
+** Eğer sunucular yetkili olmadıkları bir alana adıyla ilgili bir soru gelirse;
+
+1- Gelen sorguyu yönlendirir. İletici olarak tanımladığımız sunucular genellikle Open Dns'lerdir. 
+
+2- Reküsif bir sorgu başlatarak en baştaki sorgu protokolünü takip etmektir. YAni önce kök sunucusu ile iletişim kurarak İteratif sorgularla alan adını öğrenip istemciye cevap verir. 
+
+
+Her iki yöntemin sonucuda da yterelimizde bulunan DNS sunucusu bu adresi öğrenip önbellekte TTL değeri kadar ssklar.
+
+TTL(Time To Live) değeri, her alan adının yetkilisi tarafından belirlenen bir süredir. TTL değeri bize bu alan adı altındaki adreslerin belirtilen süre boyunca değiştirilmeyeceğini belirten bir süredir. 

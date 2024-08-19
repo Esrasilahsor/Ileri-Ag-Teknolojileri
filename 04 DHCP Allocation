@@ -1,0 +1,38 @@
+			04 DHCP Allocation
+
+
+DHCP IP adresi tahsisi için 3 mekanizmayı destekler. 
+
+1- Otomatik Allocation: Burada istemciye kalıcı bir IP adresi atar. 
+
+2- Dinamik Allocation: Bir istemciye sınırlı bir süre için veya istemci adresi bırakana kadar IP adresi atar. Bu da Kira yani Lease olarak adlandırılır. 
+
+3- Manuel Alloctaion: Bir istemciye bir IP adresi atar ve DHCP sedece atanan adrese iletmek için kullanılır. Böylelikle istemcinin sabit bir IP adresinin olup olmadığı sağlanmış olur.  
+
+
+	DHCP Snooping:
+
+Bilgisayar ağında DHCP gözetleme bir DHCP alt yapısının güvenliğini arttırmak için uygulanan bir dizi tekniktir.
+
+DHCP sunucuları LAN üzerindeki adreslere IP adresleritahsis ederken kötü niyetli, hatalı biçimlendirilmiş veya hileli DHCP sunucularını önlemek için LAN anahtarlarında(Switch) DHCP gözetleme yapılandırabilir. 
+
+Gözetleme açılan Switchten istemcilerin aldığı IP adresleri gözlemlenebilir ve bu işlem WLAN bazında da gerçekleştirilebilir.
+
+
+	DHCP Binding Database:
+
+Dinamik olarak güncellenir ve DHCP istemci bilgileri tutulur. 
+
+IPv4 Address -> Atanan IP Adresi
+MAC Address -> istemci'nin IP atanan adaptörünün MAC adresi
+Lease Expires -> Lease süresi
+Type -> Statik mi Dinamik mi?
+
+
+** DHCP sunucusu, ayrı bir sunucu olarak yapılandırılabilir veya network cihazı içinde çalıştırılabilir.
+
+** DHCP yapılandırması esnasında IP havuzları oluşturulur, kaç cihaza IP dağıtılacağı, hangi adreslerin dağıtılacağı gibi bilgiler girilir.
+
+** Bir istemci IP adresini el ile aldıysa, yerel yapılandırma parametrelerini elde etmek için  DHCP bilgisi kullanılır.
+
+**DHCPinform iletisine yanıt olarak, DHCP sunucusu yeni bir IP adresi ayırmadan istemci için uygun yerel yapılandırmaya sahip vir DHCP ack iletisi oluşturur. Bu DHCP ack iletisi unicasttir.

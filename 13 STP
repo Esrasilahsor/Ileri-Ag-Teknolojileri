@@ -1,0 +1,46 @@
+			13 STP
+
+
+Açılımı Spanning Tree Protocol'dür.
+
+Yedek yol oluşturarak haberleşmenin kesilmemesini amaçalayan yapılar kullanılmaktadır.  Bu yapılar aynı zaamanda trafiğin yükünü paylaşabilir ve kapasitesini arttırabilir.
+
+STP, döngüye neden olabilecek yolları kasten engelleyerek ağdaki tüm hedefler arasınds tek bir mantıksal yol olmasını sağlıyor.
+
+STP'ye katılan switchler, bir harita veya topoloji oluşturur. 
+
+STP Switchleri Topoloji veritabanını oluşturmak amacıyla BPDU yani Bridge Protocol Data Unit gönderirler. 
+
+Varsayılan 2 saniyede tüm portlardan gönderilen BPDU'lar bir çoklu gönderim adresi olan ve sırf bu iş için ayrılan adrese (0180.c200.0000) gönderilmektedir. 
+
+
+Bir STP topolojisi oluşturmak için;
+
+1- Kök Köprü (Root Bridge) seçilir. Bütün hesaplamalar bu switch üzerinden yapılmaktadır.
+
+2- Kök Portlar (Root Port) belirlenir. 
+
+3- Designated(atanmış) portlar belirlenir.
+
+4- Döngüleri önlemek amacıyla bloklu olması gereken portlar belirlenir. 
+
+
+STP, topolojisinde her bir switch köprü(bridge) olarak tanımlanır. 
+
+
+	Köprü Kimliği(Bridge ID):
+
+STP protokolünün kullanıldığı her subnette mutlaka bir kök köprü bulunur. 
+
+Kök köprü STP'nin mantısal merkezidir ve topoloji üzerindeki her köprü 2 saniyede bir BPDU mesajı göndererek kendisinin kök köprü olduğunu iddia eder. 
+
+Kök köprünün belirlenmesinden sonra diğer tüm switchler dinleyici olurlar.
+
+Kök köprüyü belirlemede köprü kimliği önemlidir. Köprü kimliği en düşük olan switch en iyi kabul edilir ve kök köprü olur. 
+
+
+	Yayın fırtınası:
+
+Tekrarlayan paketler gibi problemlere de yol açabilir. Bütün bant genişliğini saniyeler içerisinde tüketebilir.
+
+Yayın fırtınasında network yönetiminin zayıf olması, network planlamasının görüntülenmedinde uygun yolların seçilmemesi, ucuz cihazların kullanılması, konfigürasyonların yanlış yapılması gibi etkenler yol açabilir. 

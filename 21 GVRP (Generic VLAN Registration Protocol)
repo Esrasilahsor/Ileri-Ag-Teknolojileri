@@ -1,0 +1,78 @@
+			21 GVRP (Generic VLAN Registration Protocol)
+
+
+Ağımızdaki cihazlar arasında VLAN konfigürasyon bilgisinin otomatik olarak yayılması için geliştirilmiş bir protokoldür. 
+
+GVRP, VLAN bilgisi eklemek veya VLANeri yönetmek maksadıyla dinamik olarak konfigüre edilebilir.
+
+GVRP (Generic Attribute Registration Protocol (GARP) VLAN Registration Protocol), ağ anahtarları arasında anahtarlar üzerindeki VLAN bilgilerin otomatik olarak paylaşılmasını sağlayan bir protokoldür.
+
+Mauel konfigürasyondan kaynaklanaolası hatalar da minimalize edilmektedir.
+
+Günümüzde kullanımı giderek azalıyor olsa da hala kullanılan alanlar vardır.  
+
+Her ne kadar ağ anahtarları arasında L3 dinamik yönlendirme prokolleri (OSPF, IS-IS vb) ve VLAN'Tarı VxLAN üzerinden taşımak anlatılan avantajları içerse de, bu protokolleri destekleyen ağ anahtarlarının Layer 2 seviye anahtarlara kıyasla daha pahalı olmaları da hangi yaklaşımı uygulayarak ağ tasarımı yapılacağı belirlenirken göz önüne alınmalıdır.
+
+
+Her ne kadar ağ anahtarları arasında L3 dinamik yönlendirme prokolleri (OSPF, IS-IS vb) ve VLAN'Tarı VxLAN üzerinden taşımak anlatılan avantajları içerse de, bu protokolleri destekleyen ağ anahtarlarının Layer 2 seviye anahtarlara kıyasla daha pahalı olmaları da hangi yaklaşımı uygulayarak ağ tasarımı yapılacağı belirlenirken göz önüne alınmalıdır.
+
+
+GVRP 802 trunk portları üzerinde çalışır. GVRP çalıştıran bu trank portlara GVRP katılımcıları adı verilir.  
+
+
+Daha önceden anahtara tanımlı VLAN GVRP tarafından porta eklenirse bu porta Dynamic GVRP por denir.
+
+
+		GVRP Üzerine Çalışan GARP Tabanluı 3 Mesaj Tipi:
+
+
+	Join Mesajları:
+
+Join mesajları sayesinde VLAN attribute decloration yapılır ve portlara VLAN bilgileri atanır. 
+
+	Leave Mesajları:
+
+Leave mesajları sayesinde VLAN attribute decloration gerçekleştirilir ve portlara VLAN bilgileri kaldırılır. 
+
+
+	Leaveall Mesajları:
+
+GVRP katılımcılarının tüm bilgileri kaldırılır. 
+
+
+		GVRP Port Modları
+
+	Normal Mod:
+
+Port üzerinde VLAN atama işlemi gerçekleştirilebilir ve bunlar diğer katılımcılara duyurulabilir. 
+
+vtp-server
+
+	Fixed Mod:
+
+VLAN atama işlemi yapılamaz fakat bunlar diğer katılımcılara duyurulabilir.
+
+vtp-transparent
+
+	Forbidden Mod:
+
+Ne atama işlemi ne de diğer katılımcılara duyura işlemi yapılamaz.
+
+vtp-client
+
+
+	MVRP (Multi VLAN Registration Protokol)
+
+Kendi başuna bir protokol değildir GARP'ın revize edilmiş halidir. Extra birkaç yeteneği vardır.
+
+VTP (VLAN Trunnking Protocol):
+
+Sadece Cisco marka cihazlar arasında çalışmaktadır.
+
+VTP çok fazla sayıda switch bulunan ağlarda, protokolün adından da anlaşılabileceği gibi, "trunk" portlar sayesinde, VLAN'Iarı diğer switchlere taşımayı sağlar. VTP bir anlamda VLAN Domain (VLAN Etki Alanı) olarak da adlandırabilir. VLAN'lar üzerinde VTP ağ yöneticisine ekleme, silme, ad değiştirme gibi çeşitli yetkiler verilir ve VTP sayesinde yeni olan bilgilerin ağ üzerindeki diğer switchlere bildirilir.
+
+VTPde givenlik nedeniyle bulunan domain ad, parola gibi secenekler MVRP'de bulunmaz. Bunun haricinde MVRP verinin güncelliği için PDU ve timerlarını kullanır, revision number saymaz.
+
+Revision number VTP'de önemli bir yer tutar. Peki revision number nedir? Ağ içerisinde VLANTar üzerinde bir değişiklik yapıldığında, üzerinde değişiklik yapılan sunucu modundaki switch revizyon numarasiın bir artırr. Revizyon numarası degişen switch ayn etki alanında bulunan diğer switchlere VTP bildirisi gönderir.
+
+Bildiriyi alan switchler revizyon numaralarını karşılaştırır. Eğer aldığı bildirideki revizyon numarası kendi revizyon numarasından büyükse gelen bildiriye göre VLAN bilgilerini günceller.

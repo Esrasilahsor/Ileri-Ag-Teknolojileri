@@ -1,0 +1,78 @@
+			18 VLAN Port Tipleri
+
+
+Access Port:
+
+Sadece bir VLAN'ın üyesidir ve çoğunlukla host cihazların ve printerların bağlamakta kullanılır. 
+
+
+Trunk Port:	
+
+Tek bir VLAN üyesi değildir. Seçilen tüm Vlan'lar için gelen trafik Trank port üzerinden gönderilir. KArşı tarafın da kabul edebilmesi için Trank portunun ayarlanması gerekir. 
+
+
+	VLAN Tagging:
+
+
+Etiketleme işlemi eğer frame trunk porttan gönderilirse gerçekleşir. 
+
+Access portlardan gönderilen frameler etiketlenmez.
+
+
+		Frame Tagging Protocols
+
+
+	Inter-Switch Link (ISL):
+
+Cisco'nun tescilli çerçeve(frame) etiketleme protokolüdür ve çeşitli teknolojiler ile destekler.
+
+Frame boyutunu 30 bayt arttırır. Bu nedenle switchler bu büyük dosyayı düşürür. 
+
+ISL neredeyse tamamen kullanımdan kaldırılmıştır.
+
+
+	IEEE 802.1q:
+
+Yaygın olarak kullanılan ve standart sayılan protokoldür. Hemen hemen tüm switch üreticileri tarafından destekelenir.
+
+Açık standart olduğu için farkı markadaki switchlerde kullanılabilir.
+
+Frame boyutunu 4 bayt arttırır.
+
+Neredeyse tüm switchler 802.1q'yu yani framedeki küçük artışı destekler. 
+
+
+
+		VLAN'lar Arası Yönlendirme(Inter-VLAN Routing)
+
+
+Farklı VLAN'lere yerleştirilmiş cihazların iletişimi tıpkı farklı LAN'daymış gibi kopar. 
+
+
+	Geleneksel Yöntem:
+
+Router ile yapılır ve cihaz yorulur.
+
+
+	Router On a Stick:
+
+Switch tarafı trunk olarak ayarlandığında tüm VLAN'lerin trafiği buradan geri gelip dönebiliyor.
+
+Önümüzdeki routerların hemen hemen hepsi bu yöntemi destelemekle beraber mantıksal port yönetimi düzeylidir.
+
+Ayrıca tüm trafik yine routera kadar gitmek zorunda olduğu için bu yöntem de zorunlu olmadıkça tercih edilmemektedir.
+
+
+	Layer 3 Switch:
+
+Layer 3 kapesitesine sahip bir cihaza sahip olmak zorundayız.
+
+Ağımızın merkezine Layer 3 bir switch konumlandırarak VLAN'lerin arasındaki yönlenrşme işlemlerinin burada yapılmasını sağlıyoruz ancak yerel ağımız dışında bir yere ulaşmak istediğimizde trafik, çıkış routerımıza yönlendiriliyor. 
+
+Yönetim açısından çok fazla imkan sağlar. Problem tespitini ve kaynağını belirlememizi kolaylaştırır. 
+
+Layer 3 switchler kendi bünyesinde herhangi bir porta bağlı olması gerekmeyen sanal portlar tanımlarlar. Bu portlara VLAN'lerimizin Gateway adresini tanımlarız ve ayrıca bir routerin bacağı gibi işlem görürler.
+
+Sanal MAC adresleri vardır, gelen trafik bu adrese yöneltilir. 
+
+Sanal portlara gelen paketler aynı routerda olduğu gibi yönlendirme işlemine tabii tutulur. 

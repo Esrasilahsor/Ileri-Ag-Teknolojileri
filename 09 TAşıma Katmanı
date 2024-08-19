@@ -1,0 +1,74 @@
+			09 TAşıma Katmanı
+
+
+	Taşıma Katmanı (Transport Layer): 
+
+İki uygulama arasında geçici bir iletişim oturumu oluşturmaktan ve aralarında veri iletişimi sağlamaktan sorumludur. 
+
+Bu katman uygulama katmanı ile ağ aktarımından sorumlu olan alt katmanlar arasındaki bağlantıdır. 
+
+Taşıma katmanında kaynak uygulama ve hedef uygulama arasında akan her veri kümesi bir konuşma olarak bilinir.
+
+Bu çoklu konuşmaları taşımaz ve izlemek taşıma katmanının sorumluluğundadır. 
+
+
+	MTU(Maximum Transmission Unit):
+
+Veriler yönetilebilir parçalar halinde medya üzerinden gönderilmek üzere hazırlanmalıdır. Çoğu ağ tek bir pakete dahil edilebilecek veri miktarı üzerinde bir sınırlamaya sahiptir.
+
+Bu sınırlama değeri Network Katmanında MTU olarak adlandırılır ve bayt cinsinden ifade edilir. 
+
+Taşıma Katmanında ise MSS (Maximum Segment Size) yine bayt cinsinden belirlenebilir. 
+
+
+
+**Taşıma Katmanı Protokolleri uygulama verilerini uygun loblara bölen hizmetlere sahiptir.  
+
+	Header Data:
+
+Bu hizmet her bir veri parçası için gerekli olan kapsüllemeyi içerir. 
+
+Her veri bloğunda yeniden birleştirmek için kullanılan bir başlık eklenir. Bu başlık veri akşını izlemek için kullanılır. 
+
+Veri akışlarını uygun uygulamalara aktarmak için taşıma katmanı hedef uygulamayı tanımlamalıdır.
+
+Bunun için taşıma katmanı her uygulamaya bir port numarası adı verilen bir tanımlayıcı atar. 
+
+Bu tanımlayıcılarla farklı uygulamaların trafiğini ayrı tutabiliriz. 
+
+IP adresi ve Port numarası kombinasyonuna teknik olarak "Soket" adı verilir.
+
+Bir soket yazılması gerektiğinde IP adresi:Port numarası şeklinde yazarız. 
+
+
+Ipv4:
+
+10.10.10.91:80
+-----------  |
+IP adresi   Port numarası
+
+
+Ipv6: 
+
+{2001:db8:acad::12}:80
+-------------------  |
+	IP adresi		Port numarası
+
+
+		Port Çeşitleri:
+
+	(İyi bilinen) Well-known: 0-1023 
+
+Bu araliktaki port numaralar popüler hizmetler (HTTP, FTP, DnS, vb.) için kullanılır.
+
+
+	Rezerve Edilmiş: 1024-49151
+
+Bu aralıktaki portlar, hizmet uygulamaları(sunucularda çalişanlar) icin kullanlır. (Aynca IANA'dan kendi port numaranz satin alabilirsiniz.)
+
+
+	Dinamik: 49152-65535
+
+Bu aralktaki portlar, istemci uygulamasi tarafindan belirli bir port numarasına ihtiyaç duyulmadığı zamanlarda kullanılır. Bunun yerine sunuculara istek yapabilmek için herhangi bir port kullanilir:
+
+Bir istemci uygulaması dinamik olarak bu araliktan rastgele bir port numarası kullanır.
